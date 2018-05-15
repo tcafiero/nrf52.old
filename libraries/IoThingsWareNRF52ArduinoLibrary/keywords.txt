@@ -1,0 +1,28 @@
+#######################################
+# Syntax Coloring Map For Queue
+#######################################
+
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+hal_clock_lfclk_enable	KEYWORD2
+hal_clock_hfclk_enable	KEYWORD2
+hal_clock_hfclk_disable	KEYWORD2
+configure_ram_retention	KEYWORD2
+SwitchOffPeripherals	KEYWORD2
+DeepSleep	KEYWORD2
+
+
+#######################################
+# Instances (KEYWORD2)
+#######################################
+
+#######################################
+# Constants (LITERAL1)
+#######################################
+

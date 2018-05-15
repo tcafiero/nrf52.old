@@ -1,0 +1,71 @@
+# Copyright (c) 2014-2015 Arduino LLC.  All right reserved.
+# Copyright (c) 2016 Sandeep Mistry All right reserved.
+# Copyright (c) 2017 Adafruit Industries.  All right reserved.
+# Copyright (c) 2018 IoThingsWare.  All right reserved.
+#
+# This library is free software; you can redistribute it and/or
+# modify it under the terms of the GNU Lesser General Public
+# License as published by the Free Software Foundation; either
+# version 2.1 of the License, or (at your option) any later version.
+#
+# This library is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+# See the GNU Lesser General Public License for more details.
+#
+# You should have received a copy of the GNU Lesser General Public
+# License along with this library; if not, write to the Free Software
+# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
+
+menu.softdevice=Bootloader
+menu.debug=Debug Mode
+
+#**********************************************
+# IoThingsWare nrf52 Board
+#**********************************************
+IoThingsWare52.name=IoThingsWare nRF52
+IoThingsWare52.bootloader.tool=nrfjprog
+
+# Upload
+IoThingsWare52.upload.tool=nrfutil
+IoThingsWare52.upload.protocol=nrfutil
+
+
+
+# Build
+IoThingsWare52.build.mcu=cortex-m4
+IoThingsWare52.build.f_cpu=64000000
+IoThingsWare52.build.board=NRF52_FEATHER
+IoThingsWare52.build.core=nRF5
+IoThingsWare52.build.variant=IoThingsWare52
+
+# SofDevice Menu
+# Ram & ROM size varies depending on S132 (check linker script)
+IoThingsWare52.menu.softdevice.s132v201=0.5.0 dual, S132 2.0.1
+IoThingsWare52.menu.softdevice.s132v201.build.sd_flags=-DS132 -DSD_VER=201
+IoThingsWare52.menu.softdevice.s132v201.build.sd_name=s132
+IoThingsWare52.menu.softdevice.s132v201.build.sd_version=2.0.1
+IoThingsWare52.menu.softdevice.s132v201.build.sd_fwid=0x0088
+IoThingsWare52.menu.softdevice.s132v201.build.bootfile=0.5.0/dual/feather52_bootloader_v050_s132_v201
+IoThingsWare52.menu.softdevice.s132v201.upload.maximum_size=165888
+IoThingsWare52.menu.softdevice.s132v201.upload.maximum_data_size=51072
+
+IoThingsWare52.menu.softdevice.s132v510=5.1.0 dual, S132 5.1.0
+IoThingsWare52.menu.softdevice.s132v510.build.sd_flags=-DS132 -DSD_VER=510
+IoThingsWare52.menu.softdevice.s132v510.build.sd_name=s132
+IoThingsWare52.menu.softdevice.s132v510.build.sd_version=5.1.0
+IoThingsWare52.menu.softdevice.s132v510.build.sd_fwid=0x00A5
+IoThingsWare52.menu.softdevice.s132v510.build.bootfile={build.sd_version}/dual/feather52_bootloader_5.1.0_s132_dual
+IoThingsWare52.menu.softdevice.s132v510.upload.maximum_size=151552
+IoThingsWare52.menu.softdevice.s132v510.upload.maximum_data_size=51072
+
+# Debug Menu
+IoThingsWare52.menu.debug.l0=Level 0 (Release)
+IoThingsWare52.menu.debug.l0.build.debug_flags=-DCFG_DEBUG=0 -Os
+IoThingsWare52.menu.debug.l1=Level 1 (Error Message)
+IoThingsWare52.menu.debug.l1.build.debug_flags=-DCFG_DEBUG=1 -Os
+IoThingsWare52.menu.debug.l2=Level 2 (Full Debug)
+IoThingsWare52.menu.debug.l2.build.debug_flags=-DCFG_DEBUG=2 -Os
+IoThingsWare52.menu.debug.l3=Level 3 (Segger SystemView)
+IoThingsWare52.menu.debug.l3.build.debug_flags=-DCFG_DEBUG=3 -Os
+
