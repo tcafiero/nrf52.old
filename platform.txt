@@ -18,6 +18,7 @@
 
 name=IoThingsWare nRF52 Boards
 version=0.8.3
+runtime.tools.IoThingsWare-nrf52-elf-gcc.path={runtime.platform.path}/tools/gcc-arm-none-eabi/5_2-2015q4
 
 # Compile variables
 # -----------------
@@ -28,7 +29,10 @@ compiler.warning_flags.default=
 compiler.warning_flags.more=-Wall
 compiler.warning_flags.all=-Wall -Wextra -Wno-unused-parameter -Wno-missing-field-initializers -Wno-pointer-arith
 
-compiler.path={runtime.tools.gcc-arm-none-eabi-5_2-2015q4.path}/bin/
+compiler.path={runtime.tools.IoThingsWare-nrf52-elf-gcc.path}/bin/
+
+
+#compiler.path={runtime.tools.gcc-arm-none-eabi-5_2-2015q4.path}/bin/
 compiler.c.cmd=arm-none-eabi-gcc
 compiler.c.flags=-mcpu={build.mcu} -mthumb -c -g {compiler.warning_flags} {build.float_flags} -std=gnu11 -ffunction-sections -fdata-sections -nostdlib --param max-inline-insns-single=500 -MMD  -DSOFTDEVICE_PRESENT
 compiler.c.elf.cmd=arm-none-eabi-gcc
@@ -128,16 +132,11 @@ recipe.output.save_file={build.project_name}.{build.variant}.hex
 # Programming sketches using nrfutil (use bootloader)
 # Note : For MacOS, make a symlink to /usr/local/bin/nrfutil if installed to other location
 #**********************************************
-
 tools.nrfutil.cmd=nrfutil
 tools.nrfutil.cmd.windows={runtime.platform.path}/tools/nrfutil-0.5.2/binaries/win32/nrfutil.exe
-
 tools.nrfutil.cmd.macosx=/usr/local/bin/nrfutil
-
 tools.nrfutil.upload.params.verbose=--verbose
-
 tools.nrfutil.upload.params.quiet=
-
 tools.nrfutil.upload.pattern={cmd} {upload.verbose} dfu serial -pkg "{build.path}/{build.project_name}.zip" -p {serial.port} -b 115200
 
 
@@ -156,7 +155,6 @@ tools.nrfutil.upload.pattern={cmd} {upload.verbose} dfu serial -pkg "{build.path
 #***********************************************
 tools.nrfjprog.program.params.verbose=
 tools.nrfjprog.program.params.quiet=
-#tools.nrfjprog.program.pattern="{program.path}{program.cmd}" --program "{build.path}/{build.project_name}.hex" -f nrf52 --chiperase --reset
 tools.nrfjprog.program.pattern="{program.path}{program.cmd}" --program "{build.path}/{build.project_name}.hex" -f nrf52  --sectorerase --reset
 
 #*************************************************
