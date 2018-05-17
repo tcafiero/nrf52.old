@@ -59,6 +59,17 @@ IoThingsWare52.menu.softdevice.s132v510.build.bootfile={build.sd_version}/dual/f
 IoThingsWare52.menu.softdevice.s132v510.upload.maximum_size=151552
 IoThingsWare52.menu.softdevice.s132v510.upload.maximum_data_size=51072
 
+IoThingsWare52.menu.softdevice.s132v201noboot=S132 2.0.1 (no boot)
+IoThingsWare52.menu.softdevice.s132v201noboot.build.sd_flags=-DS132 -DSD_VER=201
+IoThingsWare52.menu.softdevice.s132v201noboot.build.sd_name=s132
+IoThingsWare52.menu.softdevice.s132v201noboot.build.sd_version=2.0.1
+IoThingsWare52.menu.softdevice.s132v201noboot.build.sd_fwid=0x0088
+IoThingsWare52.menu.softdevice.s132v201noboot.build.bootfile=0.5.0/dual/s132_nrf52_2.0.1_softdevice
+IoThingsWare52.menu.softdevice.s132v201noboot.upload.maximum_size=165888
+IoThingsWare52.menu.softdevice.s132v201noboot.upload.maximum_data_size=51072
+
+
+
 # Debug Menu
 IoThingsWare52.menu.debug.l0=Level 0 (Release)
 IoThingsWare52.menu.debug.l0.build.debug_flags=-DCFG_DEBUG=0 -Os
