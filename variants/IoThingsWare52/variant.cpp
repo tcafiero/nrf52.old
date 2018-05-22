@@ -59,9 +59,9 @@ const uint32_t g_ADigitalPinMap[] = {
   23, // N/A
   24, // N/A
 
-  25, // SDA
-  26, // SCL
-  27, // GPIO #27
+  25, // GPIO #25
+  26, // SDA
+  27, // SCL
   28, // A4
   29, // A5
   30, // A6
