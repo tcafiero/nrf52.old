@@ -127,6 +127,8 @@ recipe.size.regex.data=(\.data|\.bss|\.stack)\s+([0-9]+).*
 ## Export Compiled Binary
 recipe.output.tmp_file={build.project_name}.hex
 recipe.output.save_file={build.project_name}.{build.variant}.hex
+#recipe.output.tmp_file={build.project_name}.elf
+#recipe.output.save_file={build.project_name}.{build.variant}.elf
 
 #**********************************************
 # Programming sketches using nrfutil (use bootloader)
