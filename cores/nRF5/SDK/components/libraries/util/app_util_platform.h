@@ -57,7 +57,7 @@
 #include "nrf_nvic.h"
 #endif
 #include "nrf_assert.h"
-//#include "app_error.h"
+#include "app_error.h"
 
 #ifdef __cplusplus
 extern "C" {
@@ -71,7 +71,7 @@ extern "C" {
 #define _PRIO_APP_LOW       3
 #define _PRIO_APP_LOWEST    3
 #define _PRIO_THREAD        4
-#elif __CORTEX_M == (0x04U)
+#elif __CORTEX_M == (0x04U) && !defined(S1XX)
 #define _PRIO_SD_HIGH       0
 #define _PRIO_SD_MID        1
 #define _PRIO_APP_HIGH      2
@@ -81,6 +81,14 @@ extern "C" {
 #define _PRIO_APP_LOW       6
 #define _PRIO_APP_LOWEST    7
 #define _PRIO_THREAD        15
+#elif defined(S1XX)
+#define _PRIO_SD_HIGH       0
+#define _PRIO_APP_HIGH      1
+#define _PRIO_APP_MID       1
+#define _PRIO_SD_LOW        2
+#define _PRIO_APP_LOW       3
+#define _PRIO_APP_LOWEST    3
+#define _PRIO_THREAD        4
 #else
     #error "No platform defined"
 #endif
