@@ -64,6 +64,7 @@ IoThingsWare52.menu.softdevice.s132v201noboot.build.sd_flags=-DS132 -DSD_VER=201
 IoThingsWare52.menu.softdevice.s132v201noboot.build.sd_name=s132
 IoThingsWare52.menu.softdevice.s132v201noboot.build.sd_version=2.0.1
 IoThingsWare52.menu.softdevice.s132v201noboot.build.sd_fwid=0x0088
+IoThingsWare52.menu.softdevice.s132v201noboot.ld.file=armgcc_{build.sd_name}_nrf52832_xxaa.ld
 IoThingsWare52.menu.softdevice.s132v201noboot.build.bootfile=0.5.0/dual/s132_nrf52_2.0.1_softdevice
 IoThingsWare52.menu.softdevice.s132v201noboot.upload.maximum_size=165888
 IoThingsWare52.menu.softdevice.s132v201noboot.upload.maximum_data_size=51072
