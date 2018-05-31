@@ -34,7 +34,8 @@ IoThingsWare52.upload.protocol=nrfutil
 
 # Build
 IoThingsWare52.build.mcu=cortex-m4
-IoThingsWare52.build.f_cpu=64000000
+#IoThingsWare52.build.f_cpu=64000000
+IoThingsWare52.build.f_cpu=32768
 IoThingsWare52.build.board=NRF52_FEATHER
 IoThingsWare52.build.core=nRF5
 IoThingsWare52.build.variant=IoThingsWare52

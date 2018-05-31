@@ -36,6 +36,7 @@ void init( void )
   // Retrieve bootloader version
   bootloaderVersion = BOOTLOADER_VERSION_REGISTER;
 
+#if 0
   // Select Clock Source : XTAL or RC
 #if defined( USE_LFXO )
   // 32Khz XTAL
@@ -46,6 +47,15 @@ void init( void )
 #else
   #error Clock Source is not configured, define USE_LFXO or USE_LFRC according to your board
 #endif
+#endif
+
+  #if defined(USE_LFXO)
+    NRF_CLOCK->LFCLKSRC = (uint32_t)((CLOCK_LFCLKSRC_SRC_Xtal << CLOCK_LFCLKSRC_SRC_Pos) & CLOCK_LFCLKSRC_SRC_Msk);
+  #elif defined(USE_LFSYNT)
+    NRF_CLOCK->LFCLKSRC = (uint32_t)((CLOCK_LFCLKSRC_SRC_Synth << CLOCK_LFCLKSRC_SRC_Pos) & CLOCK_LFCLKSRC_SRC_Msk);
+  #else //USE_LFRC
+    NRF_CLOCK->LFCLKSRC = (uint32_t)((CLOCK_LFCLKSRC_SRC_RC << CLOCK_LFCLKSRC_SRC_Pos) & CLOCK_LFCLKSRC_SRC_Msk);
+  #endif
 
   NRF_CLOCK->TASKS_LFCLKSTART = 1UL;
 

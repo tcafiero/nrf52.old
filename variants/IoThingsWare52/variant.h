@@ -41,7 +41,7 @@ extern "C"
 
 // LEDs
 #define PIN_LED1                (17)
-#define PIN_LED2                (19)
+#define PIN_LED2                (18)
 
 #define LED_BUILTIN             PIN_LED1
 #define LED_CONN                PIN_LED2
@@ -53,21 +53,21 @@ extern "C"
 
 // Buttons
 /*
-#define PIN_BUTTON1             (2)
-#define PIN_BUTTON2             (3)
-#define PIN_BUTTON3             (4)
-#define PIN_BUTTON4             (5)
+#define PIN_BUTTON1             (13)
+#define PIN_BUTTON2             (14)
+#define PIN_BUTTON3             (15)
+#define PIN_BUTTON4             (16)
 */
 
 /*
  * Analog pins
  */
-#define PIN_A0               (2)
-#define PIN_A1               (3)
-#define PIN_A2               (4)
-#define PIN_A3               (5)
-#define PIN_A4               (28)
-#define PIN_A5               (29)
+#define PIN_A0               (3)
+#define PIN_A1               (4)
+#define PIN_A2               (28)
+#define PIN_A3               (29)
+#define PIN_A4               (30)
+#define PIN_A5               (31)
 #define PIN_A6               (30)
 #define PIN_A7               (31)
 

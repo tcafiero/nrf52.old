@@ -230,9 +230,12 @@ err_t AdafruitBluefruit::begin(uint8_t prph_count, uint8_t central_count)
       .accuracy      = NRF_CLOCK_LF_ACCURACY_20_PPM
       #endif
   };
-#endif
-
-  VERIFY_STATUS( sd_softdevice_enable(&clock_cfg, nrf_error_cb) );
+VERIFY_STATUS( sd_softdevice_enable(&clock_cfg, nrf_error_cb) );  
+#else
+//extern nrf_clock_lf_cfg_t clock_cfg __attribute__((weak));
+nrf_clock_lf_cfg_t *clock_cfg = NULL;
+VERIFY_STATUS( sd_softdevice_enable(clock_cfg, nrf_error_cb) );  
+#endif;
 
   /*------------------------------------------------------------------*/
   /*  SoftDevice Default Configuration depending on the number of
