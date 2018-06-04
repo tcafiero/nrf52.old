@@ -71,13 +71,10 @@ const uint32_t g_ADigitalPinMap[] = {
 
 void initVariant()
 {
-#if 1
   // LED1 & LED2
   pinMode(PIN_LED1, OUTPUT);
   pinMode(PIN_LED2, OUTPUT);
   ledOn(PIN_LED1);
   ledOn(PIN_LED2);
-
-#endif
 }
 

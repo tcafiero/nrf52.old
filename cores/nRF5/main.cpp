@@ -40,7 +40,7 @@ static TaskHandle_t  _loopHandle;
 void initVariant() __attribute__((weak));
 void initVariant() { }
 
-uint32_t _loopStacksize = 512*3;
+volatile uint32_t _loopStacksize = 512*3;
 
 uint32_t setLoopStacksize(void) __attribute__ ((weak));
 
@@ -50,13 +50,12 @@ static void loop_task(void* arg)
 
   setup();
 
-#if 0
-  #if CFG_DEBUG
+#if CFG_DEBUG
   // If Serial is not begin(), call it to avoid hard fault
   if ( !Serial.started() ) Serial.begin(115200);
+  Serial.println("Hello World!");
   dbgPrintVersion();
   Bluefruit_printInfo();
-#endif
 #endif
 
   while (1)
@@ -78,17 +77,46 @@ static void loop_task(void* arg)
   }
 }
 
+
+void flag(long int cycles, unsigned int n)
+{
+#if 0
+volatile long int i;
+for(unsigned int j=0; j < n; j++)
+{
+  digitalWrite(PIN_LED1, 0);
+  i=cycles/(n*2);
+  while(i--);
+  digitalWrite(PIN_LED1, 1);
+  i=cycles/(n*2);
+  while(i--);
+}
+  digitalWrite(PIN_LED2, 0);
+  i=cycles/(n*2);
+  while(i--);
+  digitalWrite(PIN_LED2, 1);
+  i=cycles/(n*2);
+  while(i--);
+#endif
+}
+
 /*
  * \brief Main entry point of Arduino application
- */
+ */ 
 int main( void )
 {
+volatile long int i;
   init();
   initVariant();
+  flag(20000000,1);
+  //if ( !Serial.started() ) Serial.begin(115200);
+  //Serial.println("Hello World!");
+
 
   if (setLoopStacksize)
   {
     _loopStacksize = setLoopStacksize();
+	flag(20000000,2);
   }
 
 #if CFG_DEBUG >= 3
@@ -97,14 +125,18 @@ int main( void )
 
   // Create a task for loop()
   xTaskCreate( loop_task, "loop", _loopStacksize, NULL, TASK_PRIO_LOW, &_loopHandle);
+	flag(20000000,3);
 
   // Initialize callback task
   ada_callback_init();
+	flag(20000000,4);
 
   // Start FreeRTOS scheduler.
   vTaskStartScheduler();
+	flag(20000000,5);
 
   NVIC_SystemReset();
+	flag(20000000,6);
 
   return 0;
 }

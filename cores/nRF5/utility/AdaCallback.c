@@ -88,6 +88,6 @@ void ada_callback_init(void)
   // queue to hold "Pointer to callback data"
   _cb_queue = xQueueCreate(CFG_CALLBACK_QUEUE_LENGTH, sizeof(ada_callback_t*));
 
-  TaskHandle_t callback_task_hdl;
+  static TaskHandle_t callback_task_hdl;
   xTaskCreate( adafruit_callback_task, "Callback", CFG_CALLBACK_TASK_STACKSIZE, NULL, TASK_PRIO_NORMAL, &callback_task_hdl);
 }
