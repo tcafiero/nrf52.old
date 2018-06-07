@@ -40,7 +40,7 @@
 void hal_clock_lfclk_enable(void);
 void hal_clock_hfclk_enable(void);
 void hal_clock_hfclk_disable(void);
-void configure_ram_retention(void);
+void disable_ram_retention(void);
 void SwitchOffPeripherals(void);
 void DeepSleep(void);
 

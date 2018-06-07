@@ -16,7 +16,7 @@
 # License along with this library; if not, write to the Free Software
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
-name=IoThingsWare nRF52 Boards
+name=IoThingsWare nRF52 SDK
 version=0.8.3
 runtime.tools.IoThingsWare-nrf52-elf-gcc.path={runtime.platform.path}/tools/gcc-arm-none-eabi/5_2-2015q4
 
@@ -34,13 +34,13 @@ compiler.path={runtime.tools.IoThingsWare-nrf52-elf-gcc.path}/bin/
 
 #compiler.path={runtime.tools.gcc-arm-none-eabi-5_2-2015q4.path}/bin/
 compiler.c.cmd=arm-none-eabi-gcc
-compiler.c.flags=-mcpu={build.mcu} -mthumb -c -g {compiler.warning_flags} {build.float_flags} -std=gnu11 -ffunction-sections -fdata-sections -nostdlib --param max-inline-insns-single=500 -MMD  -DSOFTDEVICE_PRESENT -DBOARD_PCA10040
+compiler.c.flags=-mcpu={build.mcu} -mthumb -c -g {compiler.warning_flags} {build.float_flags} -std=gnu11 -ffunction-sections -fdata-sections -nostdlib --param max-inline-insns-single=500 -MMD  -DSOFTDEVICE_PRESENT
 compiler.c.elf.cmd=arm-none-eabi-gcc
 compiler.c.elf.flags=-Os -Wl,--gc-sections -save-temps
 compiler.S.cmd=arm-none-eabi-gcc
 compiler.S.flags=-c -g -x assembler-with-cpp
 compiler.cpp.cmd=arm-none-eabi-g++
-compiler.cpp.flags=-mcpu={build.mcu} -mthumb -c -g {compiler.warning_flags} {build.float_flags} -std=gnu++11 -ffunction-sections -fdata-sections -fno-threadsafe-statics -nostdlib --param max-inline-insns-single=500 -fno-rtti -fno-exceptions -MMD -DBOARD_PCA10040
+compiler.cpp.flags=-mcpu={build.mcu} -mthumb -c -g {compiler.warning_flags} {build.float_flags} -std=gnu++11 -ffunction-sections -fdata-sections -fno-threadsafe-statics -nostdlib --param max-inline-insns-single=500 -fno-rtti -fno-exceptions -MMD
 compiler.ar.cmd=arm-none-eabi-ar
 compiler.ar.flags=rcs
 compiler.objcopy.cmd=arm-none-eabi-objcopy
@@ -69,7 +69,7 @@ nffs.path={runtime.platform.path}/libraries/nffs/src
 
 nffs.includes="-I{nffs.path}/fs/nffs/include" "-I{nffs.path}/fs/fs/include"  "-I{nffs.path}/fs/disk/include" "-I{nffs.path}/util/crc/include" "-I{nffs.path}/kernel/os/include" "-I{nffs.path}/kernel/os/include/os/arch/cortex_m4" "-I{nffs.path}/hw/hal/include" "-I{nffs.path}/sys/flash_map/include" "-I{nffs.path}/sys/defs/include"
 
-compiler.nrf.flags=-DARDUINO_NRF52_ADAFRUIT -DNRF5 -DNRF52 -DNRF52832_XXAA -DUSE_LFRC {build.sd_flags} {build.debug_flags} "-I{nrf.sdk.path}/components/toolchain/" "-I{nrf.sdk.path}/components/toolchain/cmsis/include" "-I{nrf.sdk.path}/components/toolchain/gcc/" "-I{nrf.sdk.path}/components/device/" "-I{nrf.sdk.path}/components/drivers_nrf/delay/" "-I{nrf.sdk.path}/components/drivers_nrf/timer/" "-I{nrf.sdk.path}/components/drivers_nrf/clock/" "-I{nrf.sdk.path}/components/drivers_nrf/hal/" "-I{nrf.sdk.path}/components/drivers_nrf/common/"  "-I{nrf.sdk.path}/components/libraries/util/" "-I{nrf.sdk.path}/components/libraries/log/" "-I{nrf.sdk.path}/components/libraries/log/src/" "-I{nrf.sdk.path}/components/libraries/simple_timer/"  "-I{nrf.sdk.path}/config/" "-I{nrf.sdk.path}/components/drivers_nrf/sdio/config/" "-I{nrf.sdk.path}/components/boards/"  "-I{nrf.sdk.path}/config/" "-I{nrf.sdk.path}/components/drivers_nrf/common/" "-I{nrf.sdk.path}/components/libraries/scheduler/" "-I{nrf.sdk.path}/components/libraries/pwr_mgmt/" "-I{nrf.sdk.path}/components/libraries/experimental_section_vars/" "-I{nrf.sdk.path}/components/libraries/timer/"   "-I{nrf.sdk.path}/components/softdevice/common/softdevice_handler" "-I{build.core.path}/softdevice/{build.sd_name}/{build.sd_version}/headers/" "-I{rtos.path}/source/include" "-I{rtos.path}/config" "-I{rtos.path}/portable/GCC/nrf52" "-I{rtos.path}/portable/CMSIS/nrf52" "-I{build.core.path}/sysview/SEGGER" "-I{build.core.path}/sysview/Config" {nffs.includes}
+compiler.nrf.flags=-DARDUINO_NRF52_ADAFRUIT -DNRF5 -DNRF52 -DNRF52832_XXAA -DUSE_LFRC {build.sd_flags} {build.debug_flags} "-I{nrf.sdk.path}/components/toolchain/" "-I{nrf.sdk.path}/components/toolchain/cmsis/include" "-I{nrf.sdk.path}/components/toolchain/gcc/" "-I{nrf.sdk.path}/components/device/" "-I{nrf.sdk.path}/components/drivers_nrf/delay/" "-I{nrf.sdk.path}/components/drivers_nrf/timer/" "-I{nrf.sdk.path}/components/drivers_nrf/clock/" "-I{nrf.sdk.path}/components/drivers_nrf/hal/" "-I{nrf.sdk.path}/components/drivers_nrf/common/"  "-I{nrf.sdk.path}/components/libraries/util/" "-I{nrf.sdk.path}/components/libraries/log/" "-I{nrf.sdk.path}/components/libraries/log/src/" "-I{nrf.sdk.path}/components/libraries/simple_timer/"  "-I{nrf.sdk.path}/config/" "-I{nrf.sdk.path}/components/drivers_nrf/sdio/config/" "-I{nrf.sdk.path}/config/" "-I{nrf.sdk.path}/components/drivers_nrf/common/" "-I{nrf.sdk.path}/components/libraries/scheduler/" "-I{nrf.sdk.path}/components/libraries/pwr_mgmt/" "-I{nrf.sdk.path}/components/libraries/experimental_section_vars/" "-I{nrf.sdk.path}/components/libraries/timer/"   "-I{nrf.sdk.path}/components/softdevice/common/softdevice_handler" "-I{build.core.path}/softdevice/{build.sd_name}/{build.sd_version}/headers/" "-I{rtos.path}/source/include" "-I{rtos.path}/config" "-I{rtos.path}/portable/GCC/nrf52" "-I{rtos.path}/portable/CMSIS/nrf52" "-I{build.core.path}/sysview/SEGGER" "-I{build.core.path}/sysview/Config" {nffs.includes}
 
 #compiler.nrf.flags=-DARDUINO_NRF52_ADAFRUIT -DNRF5 -DNRF52 -DNRF52832_XXAA -DUSE_LFXO {build.sd_flags} {build.debug_flags} "-I{nrf.sdk.path}/components/toolchain/" "-I{nrf.sdk.path}/components/toolchain/cmsis/include" "-I{nrf.sdk.path}/components/toolchain/gcc/" "-I{nrf.sdk.path}/components/device/" "-I{nrf.sdk.path}/components/drivers_nrf/delay/" "-I{nrf.sdk.path}/components/device/nrfx/" "-I{nrf.sdk.path}/components/device/nrfx/hal" "-I{nrf.sdk.path}/components/libraries/util/" "-I{build.core.path}/softdevice/{build.sd_name}/{build.sd_version}/headers/" "-I{rtos.path}/source/include" "-I{rtos.path}/config" "-I{rtos.path}/portable/GCC/nrf52" "-I{rtos.path}/portable/CMSIS/nrf52" "-I{build.core.path}/sysview/SEGGER" "-I{build.core.path}/sysview/Config" {nffs.includes}
 
@@ -163,6 +163,7 @@ tools.nrfutil.upload.pattern={cmd} {upload.verbose} dfu serial -pkg "{build.path
 tools.nrfjprog.program.params.verbose=
 tools.nrfjprog.program.params.quiet=
 tools.nrfjprog.program.pattern="{program.path}{program.cmd}" --program "{build.path}/{build.project_name}.hex" -f nrf52  --sectorerase --reset
+#tools.nrfjprog.program.pattern="{program.path}{program.cmd}" --pinresetenable
 
 #*************************************************
 # Programming bootloader using nrfjprog (use jtag)

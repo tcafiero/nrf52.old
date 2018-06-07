@@ -59,9 +59,9 @@ const uint32_t g_ADigitalPinMap[] = {
   23, // N/A
   24, // N/A
 
-  25, // GPIO #25
-  26, // SDA
-  27, // SCL
+  25, // SDA
+  26, // SCL
+  27, // GPIO #27
   28, // A4
   29, // A5
   30, // A6
@@ -73,8 +73,9 @@ void initVariant()
 {
   // LED1 & LED2
   pinMode(PIN_LED1, OUTPUT);
+  ledOff(PIN_LED1);
+
   pinMode(PIN_LED2, OUTPUT);
-  ledOn(PIN_LED1);
-  ledOn(PIN_LED2);
+  ledOff(PIN_LED2);
 }
 
