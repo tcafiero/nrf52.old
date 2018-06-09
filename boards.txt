@@ -66,7 +66,7 @@ TopViewToken.menu.softdevice.s132v201noboot.build.sd_name=s132
 TopViewToken.menu.softdevice.s132v201noboot.build.sd_version=2.0.1
 TopViewToken.menu.softdevice.s132v201noboot.build.sd_fwid=0x0088
 TopViewToken.menu.softdevice.s132v201noboot.ld.file=armgcc_{build.sd_name}_nrf52832_xxaa.ld
-TopViewToken.menu.softdevice.s132v201noboot.build.bootfile=0.5.0/dual/s132_nrf52_2.0.1_softdevice
+TopViewToken.menu.softdevice.s132v201noboot.build.bootfile={build.sd_name}_nrf52_{build.sd_version}_softdevice
 TopViewToken.menu.softdevice.s132v201noboot.upload.maximum_size=165888
 TopViewToken.menu.softdevice.s132v201noboot.upload.maximum_data_size=51072
 
@@ -111,7 +111,7 @@ feather52.menu.softdevice.s132v201.build.sd_flags=-DS132 -DSD_VER=201
 feather52.menu.softdevice.s132v201.build.sd_name=s132
 feather52.menu.softdevice.s132v201.build.sd_version=2.0.1
 feather52.menu.softdevice.s132v201.build.sd_fwid=0x0088
-feather52.menu.softdevice.s132v201.build.bootfile=0.5.0/dual/feather52_bootloader_v050_s132_v201
+feather52.menu.softdevice.s132v201.build.bootfile=feather52_bootloader_v050_s132_v201
 feather52.menu.softdevice.s132v201.upload.maximum_size=165888
 feather52.menu.softdevice.s132v201.upload.maximum_data_size=51072
 
@@ -120,7 +120,7 @@ feather52.menu.softdevice.s132v510.build.sd_flags=-DS132 -DSD_VER=510
 feather52.menu.softdevice.s132v510.build.sd_name=s132
 feather52.menu.softdevice.s132v510.build.sd_version=5.1.0
 feather52.menu.softdevice.s132v510.build.sd_fwid=0x00A5
-feather52.menu.softdevice.s132v510.build.bootfile={build.sd_version}/dual/feather52_bootloader_5.1.0_s132_dual
+feather52.menu.softdevice.s132v510.build.bootfile=feather52_bootloader_5.1.0_s132_dual
 feather52.menu.softdevice.s132v510.upload.maximum_size=151552
 feather52.menu.softdevice.s132v510.upload.maximum_data_size=51072
 
@@ -130,7 +130,7 @@ feather52.menu.softdevice.s132v201noboot.build.sd_name=s132
 feather52.menu.softdevice.s132v201noboot.build.sd_version=2.0.1
 feather52.menu.softdevice.s132v201noboot.build.sd_fwid=0x0088
 feather52.menu.softdevice.s132v201noboot.ld.file=armgcc_{build.sd_name}_nrf52832_xxaa.ld
-feather52.menu.softdevice.s132v201noboot.build.bootfile=0.5.0/dual/s132_nrf52_2.0.1_softdevice
+feather52.menu.softdevice.s132v201noboot.build.bootfile=s132_nrf52_2.0.1_softdevice
 feather52.menu.softdevice.s132v201noboot.upload.maximum_size=165888
 feather52.menu.softdevice.s132v201noboot.upload.maximum_data_size=51072
 
@@ -174,7 +174,7 @@ PCA10040.menu.softdevice.s132v201.build.sd_flags=-DS132 -DSD_VER=201
 PCA10040.menu.softdevice.s132v201.build.sd_name=s132
 PCA10040.menu.softdevice.s132v201.build.sd_version=2.0.1
 PCA10040.menu.softdevice.s132v201.build.sd_fwid=0x0088
-PCA10040.menu.softdevice.s132v201.build.bootfile=0.5.0/dual/feather52_bootloader_v050_s132_v201
+PCA10040.menu.softdevice.s132v201.build.bootfile=feather52_bootloader_v050_s132_v201
 PCA10040.menu.softdevice.s132v201.upload.maximum_size=165888
 PCA10040.menu.softdevice.s132v201.upload.maximum_data_size=51072
 
@@ -183,7 +183,7 @@ PCA10040.menu.softdevice.s132v510.build.sd_flags=-DS132 -DSD_VER=510
 PCA10040.menu.softdevice.s132v510.build.sd_name=s132
 PCA10040.menu.softdevice.s132v510.build.sd_version=5.1.0
 PCA10040.menu.softdevice.s132v510.build.sd_fwid=0x00A5
-PCA10040.menu.softdevice.s132v510.build.bootfile={build.sd_version}/dual/feather52_bootloader_5.1.0_s132_dual
+PCA10040.menu.softdevice.s132v510.build.bootfile=feather52_bootloader_5.1.0_s132_dual
 PCA10040.menu.softdevice.s132v510.upload.maximum_size=151552
 PCA10040.menu.softdevice.s132v510.upload.maximum_data_size=51072
 
@@ -193,7 +193,7 @@ PCA10040.menu.softdevice.s132v201noboot.build.sd_name=s132
 PCA10040.menu.softdevice.s132v201noboot.build.sd_version=2.0.1
 PCA10040.menu.softdevice.s132v201noboot.build.sd_fwid=0x0088
 PCA10040.menu.softdevice.s132v201noboot.ld.file=armgcc_{build.sd_name}_nrf52832_xxaa.ld
-PCA10040.menu.softdevice.s132v201noboot.build.bootfile=0.5.0/dual/s132_nrf52_2.0.1_softdevice
+PCA10040.menu.softdevice.s132v201noboot.build.bootfile=s132_nrf52_2.0.1_softdevice
 PCA10040.menu.softdevice.s132v201noboot.upload.maximum_size=165888
 PCA10040.menu.softdevice.s132v201noboot.upload.maximum_data_size=51072
 

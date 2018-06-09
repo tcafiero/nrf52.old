@@ -170,7 +170,7 @@ tools.nrfjprog.program.pattern="{program.path}{program.cmd}" --program "{build.p
 #*************************************************
 tools.nrfjprog.bootloader.params.verbose=
 tools.nrfjprog.bootloader.params.quiet=
-tools.nrfjprog.bootloader.pattern="{program.path}{program.cmd}" --program "{runtime.platform.path}/bin/bootloader/{build.variant}/{build.bootfile}.hex" -f nrf52 --chiperase --reset
+tools.nrfjprog.bootloader.pattern="{program.path}{program.cmd}" --program "{runtime.platform.path}/variants/{build.variant}/bootfiles/{build.bootfile}.hex" -f nrf52 --chiperase --reset
 
 # erase flash page while programming
 tools.nrfjprog.erase.params.verbose=
