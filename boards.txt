@@ -19,12 +19,21 @@
 
 menu.softdevice=Bootloader
 menu.debug=Debug Mode
+##menu.dongle=Programmer Type
 
 #**********************************************
 # TopViewToken nrf52 Board
 #**********************************************
 TopViewToken.name=TopViewToken nRF52
-TopViewToken.bootloader.tool=nrfjprog
+#TopViewToken.bootloader.tool=nrfjprog
+
+# Programmer Menu
+##TopViewToken.menu.dongle.ST-Link=ST-LINK
+##TopViewToken.menu.dongle.ST-Link.bootloader.tool=stlink
+##TopViewToken.menu.dongle.Jlink=Jlink
+##TopViewToken.menu.dongle.jlink.bootloader.tool=nrfjprog
+
+
 
 # Upload
 TopViewToken.upload.tool=nrfutil

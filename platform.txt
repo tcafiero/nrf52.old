@@ -150,12 +150,28 @@ tools.nrfutil.upload.pattern={cmd} {upload.verbose} dfu serial -pkg "{build.path
 #************************************************************
 # Programming sketches using openocd (use jtag, ST-Link etc.)
 #************************************************************
-#tools.openocd.path={runtime.platform.path}/tools/openocd/0.10.0-dev-nrf5/bin/
-#tools.openocd.cmd=openocd
-#tools.openocd.cmd.windows=openocd.exe
-#tools.openocd.program.params.verbose=-d2
-#tools.openocd.program.params.quiet=-d0
-#tools.openocd.program.pattern="{path}/{cmd}" {program.verbose} -f #interface/{program.protocol}.cfg -c "{program.setup_command}" -f #target/{upload.target}.cfg -c "program {{{build.path}/{build.project_name}.hex}} verify #reset; shutdown;"
+tools.openocd.path={runtime.platform.path}/tools/openocd/0.10.0-dev-nrf5/bin/
+tools.openocd.cmd=openocd
+tools.openocd.cmd.windows=openocd.exe
+tools.openocd.communication=USB
+tools.openocd.protocol=stlink-v2
+tools.openocd.target=nrf52
+tools.openocd.setup_command=transport select hla_swd; set WORKAREASIZE 0x4000;
+tools.openocd.params.verbose=-d2
+
+tools.openocd.upload.params.quiet=-d0
+tools.openocd.upload.pattern={path}/{cmd} {verbose} -f interface/{protocol}.cfg -c "{setup_command}" -f target/{target}.cfg -c program "{{{build.path}/{build.project_name}.hex}} verify reset; shutdown;"
+
+tools.openocd.program.params.quiet=-d0
+tools.openocd.program.pattern={path}/{cmd} {verbose} -f interface/{protocol}.cfg -c "{setup_command}" -f target/{target}.cfg -c "program {{{build.path}/{build.project_name}.hex}} verify reset; shutdown;"
+
+tools.openocd.erase.params.verbose=-d3
+tools.openocd.erase.params.quiet=-d0
+tools.openocd.erase.pattern=
+
+tools.openocd.bootloader.params.quiet=-d0
+tools.openocd.bootloader.pattern="{path}/{cmd}" {verbose} -f interface/{protocol}.cfg -c "{setup_command}" -f target/{target}.cfg -c "init; halt; nrf51 mass_erase; program {{{runtime.platform.path}/variants/{build.variant}/bootfiles/{build.bootfile}.hex}} verify reset; shutdown;"
+
 
 #***********************************************
 # Programming sketches using nrfjprog (use jtag)
