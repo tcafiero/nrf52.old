@@ -25,14 +25,7 @@ menu.debug=Debug Mode
 # TopViewToken nrf52 Board
 #**********************************************
 TopViewToken.name=TopViewToken nRF52
-#TopViewToken.bootloader.tool=nrfjprog
-
-# Programmer Menu
-##TopViewToken.menu.dongle.ST-Link=ST-LINK
-##TopViewToken.menu.dongle.ST-Link.bootloader.tool=stlink
-##TopViewToken.menu.dongle.Jlink=Jlink
-##TopViewToken.menu.dongle.jlink.bootloader.tool=nrfjprog
-
+#TopViewToken.bootloader.tool=opencd
 
 
 # Upload
@@ -97,7 +90,7 @@ TopViewToken.menu.debug.l3.build.debug_flags=-DCFG_DEBUG=3 -Os
 # Adafruit Feather nrf52 Board
 #**********************************************
 feather52.name=Adafruit Feather nRF52
-feather52.bootloader.tool=nrfjprog
+#feather52.bootloader.tool=nrfjprog
 
 # Upload
 feather52.upload.tool=nrfutil
@@ -160,7 +153,7 @@ feather52.menu.debug.l3.build.debug_flags=-DCFG_DEBUG=3 -Os
 # Nordic nrf52 DK PCA10040 Board
 #**********************************************
 PCA10040.name=PCA10040
-PCA10040.bootloader.tool=nrfjprog
+#PCA10040.bootloader.tool=nrfjprog
 
 # Upload
 PCA10040.upload.tool=nrfutil

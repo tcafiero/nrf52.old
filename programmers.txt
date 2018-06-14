@@ -1,29 +1,39 @@
-#jlink.name=J-Link IoThingsWare
-#jlink.communication=USB
-#jlink.protocol=jlink
-#jlink.program.protocol=jlink
-#jlink.program.tool=openocd
-#jlink.program.setup_command=transport select swd; set WORKAREASIZE 0;
+jlink.name=J-Link NRF52 (IoThingsWare)
+jlink.communication=USB
+jlink.protocol=jlink
+jlink.program.protocol=jlink
+jlink.program.tool=openocd
+jlink.program.setup_command=transport select swd; set WORKAREASIZE 0;
 
 stlink.name=ST-Link V2 NRF52 (IoThingsWare)
-stlink.upload.tool=openocd
+stlink.communication=USB
+stlink.protocol=stlink-v2
+stlink.program.protocol=stlink-v2
 stlink.program.tool=openocd
 stlink.bootloader.tool=openocd
-
-cmsisdap.name=CMSIS-DAP NRF52 (IoThingsWare)
-cmsisdap.communication=USB
-cmsisdap.protocol=cmsis-dap
-cmsisdap.program.protocol=cmsis-dap
-cmsisdap.program.tool=openocd
-cmsisdap.program.setup_command=;
-
+stlink.program.setup_command=transport select hla_swd; set WORKAREASIZE 0x4000;
 
 #**********************************************
 # Jlink with nrfjprog to burn bootloader
 #**********************************************
-nrfjprog.name=J-Link NRF52 (IoThingsWare)
+nrfjprog.name=J-Link (direct) NRF52 (IoThingsWare)
 nrfjprog.program.tool=nrfjprog
+nrfjprog.bootloader.tool=nrfjprog
 nrfjprog.program.path={runtime.platform.path}/tools/nrfjprog/9.4.0/
 nrfjprog.program.cmd=nrfjprog
 nrfjprog.program.cmd.windows=nrfjprog.exe
+
+
+
+cmsisdap.name=CMSIS-DAP NRF52 (IoThingsWare)
+#cmsisdap.upload.tool=openocd
+cmsisdap.program.tool=openocd
+cmsisdap.bootloader.tool=openocd
+cmsisdap.communication=USB
+cmsisdap.protocol=cmsis-dap
+cmsisdap.program.protocol=cmsis-dap
+cmsisdap.program.setup_command=;
+
+
+
 
