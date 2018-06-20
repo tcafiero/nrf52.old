@@ -36,7 +36,11 @@ compiler.path={runtime.tools.IoThingsWare-nrf52-elf-gcc.path}/bin/
 compiler.c.cmd=arm-none-eabi-gcc
 compiler.c.flags=-mcpu={build.mcu} -mthumb -c -g {compiler.warning_flags} {build.float_flags} -std=gnu11 -ffunction-sections -fdata-sections -nostdlib --param max-inline-insns-single=500 -MMD  -DSOFTDEVICE_PRESENT
 compiler.c.elf.cmd=arm-none-eabi-gcc
-compiler.c.elf.flags=-Os -Wl,--gc-sections -save-temps
+
+#Toni modified following statement avoid to delete symbol table into elf file.
+#compiler.c.elf.flags=-Os -Wl,--gc-sections -save-temps
+compiler.c.elf.flags=-Os -save-temps
+
 compiler.S.cmd=arm-none-eabi-gcc
 compiler.S.flags=-c -g -x assembler-with-cpp
 compiler.cpp.cmd=arm-none-eabi-g++
@@ -49,7 +53,10 @@ compiler.elf2bin.flags=-O binary
 compiler.elf2bin.cmd=arm-none-eabi-objcopy
 compiler.elf2hex.flags=-O ihex
 compiler.elf2hex.cmd=arm-none-eabi-objcopy
-compiler.ldflags=-mcpu={build.mcu} -mthumb {build.float_flags} -Wl,--cref -Wl,--check-sections -Wl,--gc-sections -Wl,--unresolved-symbols=report-all -Wl,--warn-common -Wl,--warn-section-align --specs=nano.specs --specs=nosys.specs
+
+#Toni modified following statement avoid to delete symbol table into elf file.
+#compiler.ldflags=-mcpu={build.mcu} -mthumb {build.float_flags} -Wl,--cref -Wl,--check-sections -Wl,--gc-sections -Wl,--unresolved-symbols=report-all -Wl,--warn-common -Wl,--warn-section-align --specs=nano.specs --specs=nosys.specs
+compiler.ldflags=-mcpu={build.mcu} -mthumb {build.float_flags} -Wl,--cref -Wl,--check-sections  -Wl,--unresolved-symbols=report-all -Wl,--warn-common -Wl,--warn-section-align --specs=nano.specs --specs=nosys.specs
 
 compiler.size.cmd=arm-none-eabi-size
 
@@ -108,7 +115,7 @@ recipe.c.combine.pattern="{compiler.path}{compiler.c.elf.cmd}"  "-L{build.path}"
 
 
 ## Create output (bin file)
-#recipe.objcopy.bin.pattern="{compiler.path}{compiler.elf2bin.cmd}" {compiler.elf2bin.flags} {compiler.elf2bin.extra_flags} "{build.path}/{build.project_name}.elf" "{build.path}/{build.project_name}.bin"
+recipe.objcopy.bin.pattern="{compiler.path}{compiler.elf2bin.cmd}" {compiler.elf2bin.flags} {compiler.elf2bin.extra_flags} "{build.path}/{build.project_name}.elf" "{build.path}/{build.project_name}.bin"
 
 ## Create output (hex file)
 recipe.objcopy.hex.pattern="{compiler.path}{compiler.elf2hex.cmd}" {compiler.elf2hex.flags} {compiler.elf2hex.extra_flags} "{build.path}/{build.project_name}.elf" "{build.path}/{build.project_name}.hex"
@@ -130,10 +137,10 @@ recipe.size.regex=\.text\s+([0-9]+).*
 recipe.size.regex.data=(\.data|\.bss|\.stack)\s+([0-9]+).*
 
 ## Export Compiled Binary
-recipe.output.tmp_file={build.project_name}.hex
-recipe.output.save_file={build.project_name}.{build.variant}.hex
-#recipe.output.tmp_file={build.project_name}.elf
-#recipe.output.save_file={build.project_name}.{build.variant}.elf
+#recipe.output.tmp_file={build.project_name}.hex
+#recipe.output.save_file={build.project_name}.{build.variant}.hex
+recipe.output.tmp_file={build.project_name}.elf
+recipe.output.save_file={build.project_name}.{build.variant}.elf
 
 #**********************************************
 # Programming sketches using nrfutil (use bootloader)

@@ -140,7 +140,7 @@ feather52.menu.softdevice.s132v201noboot.upload.maximum_data_size=51072
 
 # Debug Menu
 feather52.menu.debug.l0=Level 0 (Release)
-feather52.menu.debug.l0.build.debug_flags=-DCFG_DEBUG=0 -Os
+feather52.menu.debug.l0.build.debug_flags=-DCFG_DEBUG=0 -g
 feather52.menu.debug.l1=Level 1 (Error Message)
 feather52.menu.debug.l1.build.debug_flags=-DCFG_DEBUG=1 -Os
 feather52.menu.debug.l2=Level 2 (Full Debug)
